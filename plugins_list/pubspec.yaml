@@ -1,6 +1,6 @@
 name: plugins_list
 description: A tool to fetch and manage Flutter/Dart package dependencies and their versions by scanning pubspec.yaml files.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/hrajwade96/flutter_plugins_list
 
 # repository: https://github.com/my_org/my_repo

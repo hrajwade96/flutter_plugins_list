@@ -7,3 +7,5 @@
 ### Fixed
 - 'README.md'.
 - updated dependencies.
+
+## 1.0.2 - 2024-05-31

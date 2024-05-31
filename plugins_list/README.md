@@ -1,39 +1,22 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flutter Plugins List
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+`flutter_plugins_list` is a powerful command-line tool designed to manage Dart package dependencies by scanning `pubspec.yaml` 
+files in your project directories. It helps you keep track of your dependencies and ensures they are up-to-date by fetching the latest versions from pub.dev.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Automatic Scanning**: Recursively scans all directories for `pubspec.yaml` files.
+- **Version Fetching**: Retrieves the latest versions of dependencies from pub.dev.
+- **Comprehensive Reports**: Generates a `dependencies_list.txt` file listing all dependencies and their versions.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use `flutter_plugins_list`, you need to have Dart installed on your system. Follow these steps to install the tool:
 
-## Usage
+### Step 1: Add to pubspec.yaml
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Add the following to your project's `pubspec.yaml` file:
 
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```yaml
+dev_dependencies:
+  flutter_plugins_list: ^0.01

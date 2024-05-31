@@ -1,6 +1,6 @@
 # Flutter Plugins List
 
-`flutter_plugins_list` is a powerful command-line tool designed to manage Dart package dependencies by scanning `pubspec.yaml` 
+`flutter_plugins_list` is a powerful command-line tool designed to manage Flutter/Dart package dependencies by scanning `pubspec.yaml` 
 files in your project directories. It helps you keep track of your dependencies and ensures they are up-to-date by fetching the latest versions from pub.dev.
 
 ## Features
@@ -19,4 +19,9 @@ Add the following to your project's `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  flutter_plugins_list: ^0.01
+  flutter_plugins_list: ^1.0.0
+```
+
+### Step 2: 
+
+Execute the command: 'flutter_plugins_list'

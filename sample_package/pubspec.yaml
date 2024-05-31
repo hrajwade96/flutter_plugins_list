@@ -1,7 +1,6 @@
 name: sample_package
 description: "A new Flutter package project."
 version: 0.0.1
-homepage: https://github.com/hrajwade96/flutter_plugins_list
 
 environment:
   sdk: '>=3.3.4 <4.0.0'

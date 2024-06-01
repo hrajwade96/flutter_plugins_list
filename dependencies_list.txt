@@ -1,0 +1,8 @@
+Dependencies and their versions/details found across all pubspec.yaml files, including latest versions from pub.dev:
+flutter: sdk: flutter (Latest as of now: 0.0.20)
+html: no version specified (Latest as of now: 0.15.4)
+http: no version specified, ^1.2.1 (Latest as of now: 1.2.1)
+json_annotation: ^4.8.1 (Latest as of now: 4.9.0)
+glob: ^2.0.1 (Latest as of now: 2.1.2)
+path: ^1.8.0 (Latest as of now: 1.9.0)
+yaml: ^3.1.0 (Latest as of now: 3.1.2)

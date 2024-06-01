@@ -1,0 +1,1 @@
+Dependencies and their versions/details found across all pubspec.yaml files, including latest versions from pub.dev:

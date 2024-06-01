@@ -19,7 +19,7 @@ Add the following to your project's `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  flutter_plugins_list: ^1.0.0
+  flutter_plugins_list: ^1.0.3
 ```
 
 ### Step 2: 

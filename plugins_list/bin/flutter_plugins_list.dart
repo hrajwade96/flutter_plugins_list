@@ -1,9 +1,6 @@
-library flutter_plugins_list;
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
 import 'package:http/http.dart' as http;
@@ -24,8 +21,7 @@ Future<String> findGitRepositoryRoot() async {
   }
 }
 
-Future<String> _fetchLatestVersion(
-    String packageName, String versionInfo) async {
+Future<String> fetchLatestVersion(String packageName, String versionInfo) async {
   final url = Uri.parse('https://pub.dev/api/packages/$packageName');
   try {
     final response = await http.get(url);
@@ -95,7 +91,7 @@ Future<void> findDependencies() async {
 
   final latestVersions = <String, String>{};
   for (var packageName in allDependencies.keys) {
-    final latestVersion = await _fetchLatestVersion(
+    final latestVersion = await fetchLatestVersion(
         packageName, allDependencies[packageName].toString());
     latestVersions[packageName] = latestVersion;
   }
@@ -104,9 +100,12 @@ Future<void> findDependencies() async {
   await generateJsonFile(allDependencies, latestVersions);
 }
 
-Future<void> generateCsvFile(Map<String, Set<String>> allDependencies,
-    Map<String, String> latestVersions) async {
-  final csvFile = File('dependencies_list.csv');
+Future<void> generateCsvFile(Map<String, Set<String>> allDependencies, Map<String, String> latestVersions) async {
+  final outputDir = Directory('output');
+  if (!await outputDir.exists()) {
+    await outputDir.create();
+  }
+  final csvFile = File(path.join(outputDir.path, 'dependencies_list.csv'));
   final sink = csvFile.openWrite();
   sink.writeln('Dependency Name,Current Version(s),Latest Version');
 
@@ -121,7 +120,11 @@ Future<void> generateCsvFile(Map<String, Set<String>> allDependencies,
 
 Future<void> generateJsonFile(Map<String, Set<String>> allDependencies,
     Map<String, String> latestVersions) async {
-  final jsonFile = File('dependencies_list.json');
+  final outputDir = Directory('output');
+  if (!await outputDir.exists()) {
+    await outputDir.create();
+  }
+  final jsonFile = File(path.join(outputDir.path, 'dependencies_list.json'));
   final jsonContent = <String, dynamic>{};
 
   allDependencies.forEach((packageName, versions) {

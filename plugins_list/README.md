@@ -7,7 +7,7 @@ files in your project directories. It helps you keep track of your dependencies 
 
 - **Automatic Scanning**: Recursively scans all directories for `pubspec.yaml` files.
 - **Version Fetching**: Retrieves the latest versions of dependencies from pub.dev.
-- **Comprehensive Reports**: Generates a `dependencies_list.txt` file listing all dependencies and their versions.
+- **Comprehensive Reports**: Generates a `dependencies_list.txt` , 'dependencies_list.csv' and 'dependencies_list.json' files listing all dependencies and their versions.
 
 ## Installation
 

@@ -21,7 +21,8 @@ Future<String> findGitRepositoryRoot() async {
   }
 }
 
-Future<String> fetchLatestVersion(String packageName, String versionInfo) async {
+Future<String> fetchLatestVersion(
+    String packageName, String versionInfo) async {
   final url = Uri.parse('https://pub.dev/api/packages/$packageName');
   try {
     final response = await http.get(url);
@@ -98,9 +99,11 @@ Future<void> findDependencies() async {
 
   await generateCsvFile(allDependencies, latestVersions);
   await generateJsonFile(allDependencies, latestVersions);
+  await generateTextFile(allDependencies, latestVersions);
 }
 
-Future<void> generateCsvFile(Map<String, Set<String>> allDependencies, Map<String, String> latestVersions) async {
+Future<void> generateCsvFile(Map<String, Set<String>> allDependencies,
+    Map<String, String> latestVersions) async {
   final outputDir = Directory('output');
   if (!await outputDir.exists()) {
     await outputDir.create();
@@ -135,6 +138,26 @@ Future<void> generateJsonFile(Map<String, Set<String>> allDependencies,
   });
 
   await jsonFile.writeAsString(jsonEncode(jsonContent));
+}
+
+Future<void> generateTextFile(Map<String, Set<String>> allDependencies,
+    Map<String, String> latestVersions) async {
+  final outputDir = Directory('output');
+  if (!await outputDir.exists()) {
+    await outputDir.create();
+  }
+  final txtFile = File(path.join(outputDir.path, 'dependencies_list.txt'));
+  final sink = txtFile.openWrite();
+  sink.writeln(
+      'Dependencies and their versions/details found across all pubspec.yaml files, including latest versions from pub.dev:');
+  allDependencies.forEach((packageName, versions) {
+    final latestVersion = latestVersions[packageName] ?? projectPackage;
+    sink.writeln(
+        '$packageName: ${versions.join(', ')} (Latest as of now: $latestVersion)');
+  });
+
+  await sink.flush();
+  await sink.close();
 }
 
 Future<void> main() async {
